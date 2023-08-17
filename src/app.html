@@ -21,6 +21,9 @@
 
 		function WindowLoad(event) {
 			const clipboard = new ClipboardJS('.btn');
+			clipboard.on('success', function (e) {
+				e.clearSelection();
+			});
 		}
 	</script>
 	<body data-sveltekit-preload-data="hover">
