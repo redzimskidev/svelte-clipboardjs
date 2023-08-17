@@ -8,9 +8,8 @@
 		%sveltekit.head%
 	</head>
 		<script type="text/javascript">
-			document.addEventListener("copy", (e) => {
-   console.log("copy")
-});
+		const bc = new BroadcastChannel("clipboard");
+
 		if (window.addEventListener) {
 			// Mozilla, Netscape, Firefox
 			window.addEventListener('load', WindowLoad, false);
@@ -23,7 +22,11 @@
 			const clipboard = new ClipboardJS('.btn');
 			clipboard.on('success', function (e) {
 				e.clearSelection();
+				bc.postMessage({ success: true });
 			});
+			clipboard.on('error', function (e) {
+				bc.postMessage({ success: false });
+			})
 		}
 	</script>
 	<body data-sveltekit-preload-data="hover">
