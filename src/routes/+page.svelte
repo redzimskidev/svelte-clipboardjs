@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div id="container">
+  <h1>Look at those awesome pictures!</h1>
+  <img src="https://picsum.photos/200/200" alt="Random" />
+  <img src="https://picsum.photos/250/200" alt="Random" />
+  <img src="https://picsum.photos/150/200" alt="Random" />
+</div>
+
+<button class="btn" data-clipboard-target="#container">Copy</button>
