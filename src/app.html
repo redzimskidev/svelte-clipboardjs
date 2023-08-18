@@ -4,31 +4,8 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 		%sveltekit.head%
 	</head>
-		<script type="text/javascript">
-		const bc = new BroadcastChannel("clipboard");
-
-		if (window.addEventListener) {
-			// Mozilla, Netscape, Firefox
-			window.addEventListener('load', WindowLoad, false);
-		} else if (window.attachEvent) {
-			// IE
-			window.attachEvent('onload', WindowLoad);
-		}
-
-		function WindowLoad(event) {
-			const clipboard = new ClipboardJS('.btn');
-			clipboard.on('success', function (e) {
-				e.clearSelection();
-				bc.postMessage({ success: true });
-			});
-			clipboard.on('error', function (e) {
-				bc.postMessage({ success: false });
-			})
-		}
-	</script>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>

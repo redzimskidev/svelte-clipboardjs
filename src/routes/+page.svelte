@@ -1,13 +1,11 @@
 <script>
+  import Clipboard from 'clipboard';
+  import { onMount } from 'svelte';
   let message = 'Nothing copied yet.';
-  const bc = new BroadcastChannel('clipboard');
-  bc.onmessage = (event) => {
-    if (event.data.success) {
-      message = 'Succesfully copied at ' + new Date().toLocaleTimeString();
-    } else {
-      message = 'Failed to copy at ' + new Date().toLocaleTimeString();
-    }
-  };
+
+  onMount(() => {
+    let clipboard = new Clipboard('.btn');
+  });
 </script>
 
 <div id="container">
